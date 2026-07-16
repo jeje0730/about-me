@@ -1,0 +1,519 @@
+    :root {
+    --paper: #f5f0e7;
+    --white: #fffdf9;
+    --black: #191816;
+    --gray: #746f67;
+    --red: #941f2b;
+    --line: rgba(25, 24, 22, 0.15);
+    }
+
+    * {
+    box-sizing: border-box;
+    }
+
+    html {
+    scroll-behavior: smooth;
+    }
+
+    body {
+    margin: 0;
+    color: var(--black);
+    background: var(--paper);
+    font-family:
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        serif;
+    line-height: 1.9;
+    }
+
+    img {
+    display: block;
+    width: 100%;
+    }
+
+    a {
+    color: inherit;
+    text-decoration: none;
+    }
+
+    /* ヘッダー */
+
+    .header {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 76px;
+    padding: 0 5vw;
+
+    background: rgba(248, 244, 237, 0.94);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(12px);
+    }
+
+    .logo {
+    font-size: clamp(1.3rem, 2vw, 2rem);
+    font-weight: bold;
+    letter-spacing: 0.13em;
+    }
+
+    .navigation {
+    display: flex;
+    gap: clamp(22px, 4vw, 58px);
+
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
+    }
+
+    .navigation a {
+    position: relative;
+    }
+
+    .navigation a::after {
+    position: absolute;
+    bottom: -7px;
+    left: 0;
+
+    width: 0;
+    height: 1px;
+
+    content: "";
+    background: var(--red);
+    transition: width 0.25s;
+    }
+
+    .navigation a:hover::after,
+    .navigation a:focus-visible::after {
+    width: 100%;
+    }
+
+    /* メインビジュアル */
+
+    .hero {
+    position: relative;
+
+    min-height: 720px;
+    height: 100svh;
+    padding-top: 76px;
+
+    overflow: hidden;
+    background: #111;
+    }
+
+    .hero-image {
+    position: absolute;
+    top: 76px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    height: calc(100% - 76px);
+
+    object-fit: cover;
+    object-position: center;
+    }
+
+    .hero::after {
+    position: absolute;
+    top: 76px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    content: "";
+
+    background: linear-gradient(
+        90deg,
+        rgba(8, 8, 8, 0.92) 0%,
+        rgba(8, 8, 8, 0.72) 25%,
+        rgba(8, 8, 8, 0.14) 60%,
+        rgba(8, 8, 8, 0.04) 100%
+    );
+    }
+
+    .hero-text {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 40px;
+
+    height: 100%;
+    padding: clamp(110px, 15vh, 160px) 8vw 70px;
+
+    color: #fff;
+    }
+
+    .hero h1 {
+    margin: 0;
+
+    writing-mode: vertical-rl;
+
+    font-size: clamp(2.8rem, 5vw, 5.2rem);
+    font-weight: 400;
+    line-height: 1.45;
+    letter-spacing: 0.1em;
+    }
+
+    .hero-description {
+    margin: 16px 0 0;
+
+    writing-mode: vertical-rl;
+
+    font-size: 0.95rem;
+    letter-spacing: 0.22em;
+    opacity: 0.88;
+    }
+
+    /* 共通セクション */
+
+    .section {
+    padding: clamp(80px, 10vw, 140px) 7vw;
+    }
+
+    .inner {
+    width: min(1120px, 100%);
+    margin: 0 auto;
+    }
+
+    .section-title {
+    margin: 0 0 50px;
+
+    font-size: 1.8rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    }
+
+    .section-title span {
+    display: block;
+    margin-bottom: 8px;
+
+    color: var(--red);
+
+    font-family: sans-serif;
+    font-size: 0.68rem;
+    font-weight: bold;
+    line-height: 1;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    }
+
+    /* こだわり */
+
+    .craft {
+    background: var(--white);
+    }
+
+    .craft-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: clamp(50px, 8vw, 110px);
+    align-items: center;
+    }
+
+    .craft-photo {
+    height: 470px;
+
+    overflow: hidden;
+    background: var(--red);
+    }
+
+    .craft-photo img {
+    height: 100%;
+
+    object-fit: cover;
+    filter: saturate(0.92) contrast(1.03);
+    }
+
+    .lead {
+    margin: 0 0 24px;
+
+    font-size: clamp(1.6rem, 3vw, 2.6rem);
+    line-height: 1.65;
+    letter-spacing: 0.08em;
+    }
+
+    .craft-text p {
+    max-width: 34em;
+    color: #54504a;
+    }
+
+    .shop-name {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+
+    margin-top: 20px;
+
+    color: var(--red);
+
+    font-size: 0.86rem;
+    letter-spacing: 0.16em;
+    }
+
+    .shop-name::before {
+    width: 44px;
+    height: 1px;
+
+    content: "";
+    background: currentColor;
+    }
+
+    /* メニュー */
+
+    .menu {
+    background: var(--paper);
+    }
+
+    .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    }
+
+    .menu-card {
+    padding: 34px 28px;
+
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid var(--line);
+
+    transition:
+        transform 0.25s,
+        background 0.25s;
+    }
+
+    .menu-card:hover {
+    background: rgba(255, 255, 255, 0.8);
+    transform: translateY(-5px);
+    }
+
+    .menu-number {
+    color: var(--red);
+
+    font-family: sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    }
+
+    .menu-card h3 {
+    margin: 24px 0 13px;
+
+    font-size: 1.35rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    }
+
+    .menu-card p {
+    margin: 0;
+
+    color: var(--gray);
+
+    font-size: 0.9rem;
+    }
+
+    .menu-note {
+    margin-top: 30px;
+
+    color: var(--gray);
+
+    font-size: 0.78rem;
+    text-align: right;
+    }
+
+    /* 店舗情報 */
+
+    .information {
+    color: #fff;
+    background: #1c1a18;
+    }
+
+    .information-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(50px, 8vw, 110px);
+    }
+
+    .information .section-title span {
+    color: #d4676f;
+    }
+
+    .info-list {
+    margin: 0;
+    }
+
+    .info-row {
+    display: grid;
+    grid-template-columns: 95px 1fr;
+    gap: 20px;
+
+    padding: 19px 0;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .info-row dt {
+    color: rgba(255, 255, 255, 0.58);
+    font-size: 0.8rem;
+    }
+
+    .info-row dd {
+    margin: 0;
+    }
+
+    .map-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 220px;
+    margin-top: 36px;
+    padding: 16px 24px;
+
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+
+    font-size: 0.85rem;
+    letter-spacing: 0.16em;
+
+    transition:
+        color 0.25s,
+        background 0.25s;
+    }
+
+    .map-button:hover,
+    .map-button:focus-visible {
+    color: var(--black);
+    background: #fff;
+    }
+
+    .information-message {
+    align-self: center;
+    color: rgba(255, 255, 255, 0.72);
+    }
+
+    .information-message strong {
+    display: block;
+
+    margin-bottom: 24px;
+
+    color: #fff;
+
+    font-size: clamp(1.45rem, 3vw, 2.3rem);
+    font-weight: 400;
+    line-height: 1.65;
+    }
+
+    /* フッター */
+
+    .footer {
+    padding: 34px 7vw;
+
+    color: #6d675f;
+    background: #eee7dd;
+
+    font-family: sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-align: center;
+    }
+
+    /* タブレット・スマートフォン */
+
+    @media (max-width: 760px) {
+    .header {
+        height: 64px;
+        padding: 0 20px;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .navigation {
+        gap: 16px;
+        font-size: 0.7rem;
+    }
+
+    .navigation a:first-child {
+        display: none;
+    }
+
+    .hero {
+        min-height: 680px;
+        height: 92svh;
+        padding-top: 64px;
+    }
+
+    .hero-image {
+        top: 64px;
+        height: calc(100% - 64px);
+    }
+
+    .hero::after {
+        top: 64px;
+
+        background: linear-gradient(
+        90deg,
+        rgba(8, 8, 8, 0.84),
+        rgba(8, 8, 8, 0.25) 72%
+        );
+    }
+
+    .hero-text {
+        gap: 24px;
+        padding: 120px 28px 70px;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.4rem, 11vw, 3.5rem);
+    }
+
+    .hero-description {
+        font-size: 0.8rem;
+    }
+
+    .section {
+        padding: 80px 24px;
+    }
+
+    .section-title {
+        margin-bottom: 34px;
+    }
+
+    .craft-grid,
+    .information-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .craft-photo {
+        height: 330px;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .menu-note {
+        text-align: left;
+    }
+    }
+
+    /* 動きを減らす設定を使用している端末向け */
+
+    @media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    * {
+        transition-duration: 0.01ms !important;
+    }
+    }
