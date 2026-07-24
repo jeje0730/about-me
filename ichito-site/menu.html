@@ -14,7 +14,17 @@
 >
 
 <title>お品書き｜らぁ麺 いちと</title>
+<link
+rel="icon"
+href="images/favicon.ico"
+sizes="any"
+>
 
+<link
+rel="icon"
+href="images/ichito-favicon.png"
+type="image/png"
+>
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/menu.css">
 
@@ -27,10 +37,17 @@
 <header class="header">
     <div class="header-inner">
 
-    <a href="index.html" class="logo">
-        <span class="logo-main">いちと</span>
-        <span class="logo-sub">RAMEN ICHITO</span>
-    </a>
+<a
+    href="index.html"
+    class="logo"
+    aria-label="らぁ麺いちと ホームへ"
+>
+    <img
+        class="logo-image"
+        src="images/ichito-header-logo-white.png"
+        alt="らぁ麺 いちと"
+    >
+</a>
 
     <nav
         class="navigation"
@@ -116,6 +133,15 @@
         麺、スープ、具材の重なりを大切に、<br>
         一杯一杯丁寧に仕上げます。
         </p>
+
+        <div class="ramen-option">
+        <span class="ramen-option-label">OPTION</span>
+
+        <div class="ramen-option-detail">
+            <span class="ramen-option-name">麺大盛</span>
+            <span class="ramen-option-price">＋150円</span>
+        </div>
+        </div>
 
         <div class="menu-category-layout">
 
@@ -322,7 +348,6 @@ id="side-menu"
         </div>
 
         <dl class="side-price-list">
-
         <div class="side-price-row">
             <dt>味玉</dt>
             <dd>150円</dd>
@@ -341,7 +366,6 @@ id="side-menu"
         </dl>
 
     </article>
-
     </div>
 
     <p class="menu-note">
@@ -423,6 +447,12 @@ id="side-menu"
     &copy; らぁ麺 いちと All Rights Reserved.
     </p>
 </footer>
-
+<button
+    class="back-to-top"
+    type="button"
+    aria-label="ページ上部へ戻る"
+>
+    <span aria-hidden="true">↑</span>
+</button>
 </body>
 </html>

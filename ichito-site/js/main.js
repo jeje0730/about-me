@@ -2,13 +2,14 @@ document.addEventListener("DOMContentLoaded", () => {
 const menuToggle = document.querySelector(".menu-toggle");
 const navigation = document.querySelector(".navigation");
 const menuOverlay = document.querySelector(".menu-overlay");
-const navigationLinks = document.querySelectorAll(".navigation a");
+const navigationLinks =
+    document.querySelectorAll(".navigation a");
+const backToTop =
+    document.querySelector(".back-to-top");
 
-if (!menuToggle || !navigation || !menuOverlay) {
-    return;
-}
-
-const openMenu = () => {
+/* ハンバーガーメニュー */
+if (menuToggle && navigation && menuOverlay) {
+    const openMenu = () => {
     menuToggle.classList.add("is-active");
     navigation.classList.add("is-active");
     menuOverlay.classList.add("is-active");
@@ -16,12 +17,12 @@ const openMenu = () => {
 
     menuToggle.setAttribute("aria-expanded", "true");
     menuToggle.setAttribute(
-    "aria-label",
-    "メニューを閉じる"
+        "aria-label",
+        "メニューを閉じる"
     );
-};
+    };
 
-const closeMenu = () => {
+    const closeMenu = () => {
     menuToggle.classList.remove("is-active");
     navigation.classList.remove("is-active");
     menuOverlay.classList.remove("is-active");
@@ -29,37 +30,62 @@ const closeMenu = () => {
 
     menuToggle.setAttribute("aria-expanded", "false");
     menuToggle.setAttribute(
-    "aria-label",
-    "メニューを開く"
+        "aria-label",
+        "メニューを開く"
     );
-};
+    };
 
-menuToggle.addEventListener("click", () => {
+    menuToggle.addEventListener("click", () => {
     const isOpen =
-    menuToggle.getAttribute("aria-expanded") === "true";
+        menuToggle.getAttribute("aria-expanded") === "true";
 
     if (isOpen) {
-    closeMenu();
+        closeMenu();
     } else {
-    openMenu();
+        openMenu();
     }
-});
+    });
 
-menuOverlay.addEventListener("click", closeMenu);
+    menuOverlay.addEventListener("click", closeMenu);
 
-navigationLinks.forEach((link) => {
+    navigationLinks.forEach((link) => {
     link.addEventListener("click", closeMenu);
-});
+    });
 
-document.addEventListener("keydown", (event) => {
+    document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
-    closeMenu();
+        closeMenu();
     }
-});
+    });
 
-window.addEventListener("resize", () => {
+    window.addEventListener("resize", () => {
     if (window.innerWidth > 800) {
-    closeMenu();
+        closeMenu();
     }
-});
+    });
+}
+
+/* ページ上部へ戻るボタン */
+if (backToTop) {
+    const updateBackToTop = () => {
+    if (window.scrollY > 500) {
+        backToTop.classList.add("is-visible");
+    } else {
+        backToTop.classList.remove("is-visible");
+    }
+    };
+
+    window.addEventListener("scroll", updateBackToTop, {
+    passive: true
+    });
+
+    updateBackToTop();
+
+    backToTop.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+    });
+}
 });
