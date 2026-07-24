@@ -1,0 +1,493 @@
+/* ========================================
+shop.css
+店舗案内ページ専用
+======================================== */
+
+/* ページ上部 */
+.shop-header {
+background:
+    linear-gradient(
+    90deg,
+    rgba(12, 8, 6, 0.92) 0%,
+    rgba(42, 12, 12, 0.68) 48%,
+    rgba(42, 12, 12, 0.25) 100%
+    ),
+    url("../images/ramen-hero.png") center / cover no-repeat;
+}
+
+/* 店舗紹介 */
+.shop-introduction {
+position: relative;
+overflow: hidden;
+color: var(--white);
+text-align: center;
+background:
+    radial-gradient(
+    circle at 50% 0%,
+    rgba(143, 23, 36, 0.32),
+    transparent 45%
+    ),
+    var(--black);
+}
+
+.shop-introduction::before,
+.shop-introduction::after {
+position: absolute;
+top: 50%;
+width: 18%;
+height: 1px;
+content: "";
+background: linear-gradient(
+    to right,
+    transparent,
+    rgba(200, 164, 106, 0.42)
+);
+}
+
+.shop-introduction::before {
+left: 0;
+}
+
+.shop-introduction::after {
+right: 0;
+transform: rotate(180deg);
+}
+
+.shop-introduction-inner {
+max-width: 820px;
+}
+
+.shop-lead {
+margin-bottom: 26px;
+color: var(--gold);
+font-family:
+    "Yu Mincho",
+    "Hiragino Mincho ProN",
+    serif;
+font-size: clamp(1.65rem, 3.5vw, 2.6rem);
+font-weight: 500;
+letter-spacing: 0.13em;
+}
+
+.shop-description {
+color: rgba(255, 250, 242, 0.72);
+line-height: 2.2;
+}
+
+/* 店舗情報 */
+.shop-information {
+position: relative;
+overflow: hidden;
+background:
+    radial-gradient(
+    circle at 90% 10%,
+    rgba(143, 23, 36, 0.085),
+    transparent 35%
+    ),
+    var(--paper);
+}
+
+.shop-information-layout {
+display: grid;
+grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+gap: clamp(45px, 7vw, 90px);
+align-items: center;
+}
+
+/* 店舗写真 */
+.shop-photo {
+position: relative;
+height: 610px;
+overflow: hidden;
+border-radius: 3px;
+box-shadow: var(--shadow);
+}
+
+.shop-photo::before {
+position: absolute;
+top: -1px;
+left: -1px;
+z-index: 2;
+width: 82px;
+height: 82px;
+border-top: 1px solid var(--amber);
+border-left: 1px solid var(--amber);
+content: "";
+}
+
+.shop-photo::after {
+position: absolute;
+inset: 13px;
+z-index: 1;
+border: 1px solid rgba(255, 250, 242, 0.38);
+content: "";
+pointer-events: none;
+}
+
+.shop-photo img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+object-position: 67% center;
+transition: transform 1.1s ease;
+}
+
+.shop-photo:hover img {
+transform: scale(1.045);
+}
+
+/* 店舗情報一覧 */
+.shop-details {
+min-width: 0;
+}
+
+.shop-detail-list {
+border-top: 1px solid rgba(84, 16, 23, 0.2);
+}
+
+.shop-detail-row {
+display: grid;
+grid-template-columns: 110px minmax(0, 1fr);
+gap: 26px;
+padding: 22px 5px;
+border-bottom: 1px solid rgba(84, 16, 23, 0.16);
+}
+
+.shop-detail-row dt {
+color: var(--red-dark);
+font-family:
+    "Yu Mincho",
+    "Hiragino Mincho ProN",
+    serif;
+font-weight: 600;
+letter-spacing: 0.09em;
+}
+
+.shop-detail-row dd {
+color: var(--gray);
+line-height: 1.9;
+}
+
+.shop-detail-buttons {
+display: flex;
+flex-wrap: wrap;
+gap: 12px;
+margin-top: 35px;
+}
+
+.shop-detail-buttons .button {
+flex: 1;
+min-width: 195px;
+text-align: center;
+}
+
+.instagram-button {
+border-color: var(--red-dark);
+color: var(--red-dark);
+background-color: transparent;
+}
+
+.instagram-button:hover {
+color: var(--white);
+background-color: var(--red);
+}
+
+/* 地図 */
+.map-section {
+background-color: var(--black);
+}
+
+.map-heading {
+padding: 72px 24px 45px;
+color: var(--white);
+text-align: center;
+}
+
+.map-heading-en {
+margin-bottom: 12px;
+color: var(--gold);
+font-family: Georgia, "Times New Roman", serif;
+font-size: 0.74rem;
+letter-spacing: 0.4em;
+}
+
+.map-heading h2 {
+font-family:
+    "Yu Mincho",
+    "Hiragino Mincho ProN",
+    serif;
+font-size: clamp(1.9rem, 4vw, 3rem);
+font-weight: 500;
+letter-spacing: 0.14em;
+}
+
+.map-container {
+position: relative;
+width: 100%;
+height: 520px;
+overflow: hidden;
+}
+
+.map-container::after {
+position: absolute;
+inset: 0;
+border: 1px solid rgba(200, 164, 106, 0.25);
+content: "";
+pointer-events: none;
+}
+
+.map-container iframe {
+width: 100%;
+height: 100%;
+border: 0;
+filter:
+    grayscale(0.35)
+    sepia(0.12)
+    contrast(0.96);
+}
+
+/* ご来店のお客様へ */
+.visit-guide {
+position: relative;
+overflow: hidden;
+background:
+    radial-gradient(
+    circle at 10% 90%,
+    rgba(184, 121, 34, 0.1),
+    transparent 34%
+    ),
+    var(--white);
+}
+
+.visit-guide-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 20px;
+}
+
+.visit-guide-card {
+position: relative;
+min-height: 285px;
+padding: 42px 30px 34px;
+overflow: hidden;
+border: 1px solid rgba(84, 16, 23, 0.14);
+background:
+    linear-gradient(
+    145deg,
+    rgba(255, 250, 242, 0.96),
+    rgba(243, 237, 227, 0.78)
+    );
+box-shadow: 0 12px 35px rgba(45, 24, 16, 0.07);
+transition:
+    border-color var(--transition),
+    box-shadow var(--transition),
+    transform var(--transition);
+}
+
+.visit-guide-card::before {
+position: absolute;
+right: -25px;
+bottom: -48px;
+width: 135px;
+height: 135px;
+border: 1px solid rgba(143, 23, 36, 0.08);
+border-radius: 50%;
+content: "";
+}
+
+.visit-guide-card:hover {
+border-color: rgba(143, 23, 36, 0.38);
+box-shadow: 0 20px 45px rgba(45, 24, 16, 0.12);
+transform: translateY(-6px);
+}
+
+.visit-guide-number {
+display: block;
+margin-bottom: 24px;
+color: var(--amber);
+font-family: Georgia, "Times New Roman", serif;
+font-size: 0.8rem;
+font-style: italic;
+letter-spacing: 0.13em;
+}
+
+.visit-guide-card h3 {
+position: relative;
+margin-bottom: 22px;
+padding-bottom: 18px;
+color: var(--red-dark);
+font-family:
+    "Yu Mincho",
+    "Hiragino Mincho ProN",
+    serif;
+font-size: 1.23rem;
+letter-spacing: 0.08em;
+}
+
+.visit-guide-card h3::after {
+position: absolute;
+bottom: 0;
+left: 0;
+width: 38px;
+height: 1px;
+content: "";
+background-color: var(--amber);
+}
+
+.visit-guide-card p {
+color: var(--gray);
+font-size: 0.91rem;
+line-height: 2;
+}
+
+/* Instagram */
+.shop-instagram {
+position: relative;
+min-height: 500px;
+display: grid;
+place-items: center;
+overflow: hidden;
+color: var(--white);
+text-align: center;
+background:
+    linear-gradient(
+    rgba(18, 8, 7, 0.86),
+    rgba(68, 10, 17, 0.83)
+    ),
+    url("../images/noodles-dynamic.png") center / cover no-repeat;
+background-attachment: fixed;
+}
+
+.shop-instagram::before {
+position: absolute;
+inset: 17px;
+z-index: 1;
+border: 1px solid rgba(200, 164, 106, 0.4);
+content: "";
+pointer-events: none;
+}
+
+.shop-instagram::after {
+position: absolute;
+inset: 0;
+content: "";
+background:
+    radial-gradient(
+    circle at center,
+    transparent 12%,
+    rgba(8, 4, 3, 0.38) 100%
+    );
+}
+
+.shop-instagram-content {
+position: relative;
+z-index: 2;
+max-width: 760px;
+padding: 70px 24px;
+}
+
+.shop-instagram-en {
+margin-bottom: 18px;
+color: var(--gold);
+font-family: Georgia, "Times New Roman", serif;
+font-size: 0.75rem;
+letter-spacing: 0.42em;
+}
+
+.shop-instagram h2 {
+margin-bottom: 24px;
+font-family:
+    "Yu Mincho",
+    "Hiragino Mincho ProN",
+    serif;
+font-size: clamp(2rem, 4.5vw, 3.3rem);
+font-weight: 500;
+letter-spacing: 0.13em;
+}
+
+.shop-instagram-content > p:not(.shop-instagram-en) {
+margin-bottom: 36px;
+color: rgba(255, 250, 242, 0.74);
+line-height: 2.1;
+}
+
+/* タブレット */
+@media (max-width: 900px) {
+.shop-information-layout {
+    grid-template-columns: 1fr;
+}
+
+.shop-photo {
+    height: 470px;
+}
+
+.visit-guide-grid {
+    grid-template-columns: 1fr;
+}
+
+.visit-guide-card {
+    min-height: auto;
+}
+
+.shop-instagram {
+    background-attachment: scroll;
+}
+}
+
+/* スマートフォン */
+@media (max-width: 600px) {
+.shop-header {
+    background-position: 63% center;
+}
+
+.shop-introduction::before,
+.shop-introduction::after {
+    display: none;
+}
+
+.shop-description br,
+.shop-instagram-content br {
+    display: none;
+}
+
+.shop-photo {
+    height: 350px;
+}
+
+.shop-detail-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 21px 3px;
+}
+
+.shop-detail-buttons {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.shop-detail-buttons .button {
+    width: 100%;
+    min-width: 0;
+}
+
+.map-heading {
+    padding-top: 55px;
+    padding-bottom: 35px;
+}
+
+.map-container {
+    height: 390px;
+}
+
+.visit-guide-card {
+    padding: 34px 24px 30px;
+}
+
+.shop-instagram {
+    min-height: 430px;
+}
+
+.shop-instagram::before {
+    inset: 10px;
+}
+}

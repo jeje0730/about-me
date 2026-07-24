@@ -1,0 +1,453 @@
+/* ========================================
+commitment.css
+こだわりページ専用
+======================================== */
+
+/* ページ上部 */
+.commitment-header {
+background:
+    linear-gradient(
+    90deg,
+    rgba(12, 8, 6, 0.92) 0%,
+    rgba(42, 12, 12, 0.68) 48%,
+    rgba(42, 12, 12, 0.25) 100%
+    ),
+    url("../images/noodles-dynamic.png") center / cover no-repeat;
+}
+
+/* はじめの文章 */
+.commitment-introduction {
+position: relative;
+overflow: hidden;
+color: var(--white);
+text-align: center;
+background:
+    radial-gradient(
+    circle at 50% 0%,
+    rgba(143, 23, 36, 0.32),
+    transparent 45%
+    ),
+    var(--black);
+}
+
+.commitment-introduction::before,
+.commitment-introduction::after {
+position: absolute;
+top: 50%;
+width: 18%;
+height: 1px;
+content: "";
+background: linear-gradient(
+    to right,
+    transparent,
+    rgba(200, 164, 106, 0.42)
+);
+}
+
+.commitment-introduction::before {
+left: 0;
+}
+
+.commitment-introduction::after {
+right: 0;
+transform: rotate(180deg);
+}
+
+.commitment-lead {
+margin-bottom: 27px;
+color: var(--gold);
+font-family:
+    "Yu Mincho",
+    "Hiragino Mincho ProN",
+    serif;
+font-size: clamp(1.65rem, 3.5vw, 2.6rem);
+font-weight: 500;
+letter-spacing: 0.13em;
+}
+
+.commitment-description {
+color: rgba(255, 250, 242, 0.72);
+line-height: 2.25;
+}
+
+/* こだわりセクション */
+.commitment-section {
+position: relative;
+overflow: hidden;
+background:
+    radial-gradient(
+    circle at 90% 10%,
+    rgba(143, 23, 36, 0.085),
+    transparent 35%
+    ),
+    var(--paper);
+}
+
+.commitment-section-dark {
+color: var(--white);
+background:
+    radial-gradient(
+    circle at 14% 82%,
+    rgba(143, 23, 36, 0.28),
+    transparent 40%
+    ),
+    var(--black-soft);
+}
+
+.commitment-row {
+display: grid;
+grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+gap: clamp(45px, 8vw, 110px);
+align-items: center;
+}
+
+.commitment-row-reverse .commitment-image {
+order: 2;
+}
+
+.commitment-row-reverse .commitment-text {
+order: 1;
+}
+
+/* 写真 */
+.commitment-image {
+position: relative;
+height: 580px;
+overflow: hidden;
+border-radius: 3px;
+box-shadow: var(--shadow);
+}
+
+.commitment-image::before {
+position: absolute;
+top: -1px;
+left: -1px;
+z-index: 2;
+width: 82px;
+height: 82px;
+border-top: 1px solid var(--amber);
+border-left: 1px solid var(--amber);
+content: "";
+}
+
+.commitment-image::after {
+position: absolute;
+inset: 13px;
+z-index: 1;
+border: 1px solid rgba(255, 250, 242, 0.38);
+content: "";
+pointer-events: none;
+}
+
+.commitment-image img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: transform 1.1s ease;
+}
+
+.commitment-image:hover img {
+transform: scale(1.045);
+}
+
+.commitment-image-detail img {
+object-position: 67% center;
+}
+
+/* 写真の番号 */
+.commitment-number {
+position: absolute;
+right: 25px;
+bottom: 18px;
+z-index: 2;
+color: rgba(255, 250, 242, 0.82);
+font-family: Georgia, "Times New Roman", serif;
+font-size: clamp(4rem, 7vw, 6.5rem);
+font-style: italic;
+line-height: 1;
+text-shadow: 0 5px 20px rgba(0, 0, 0, 0.45);
+}
+
+/* 文章 */
+.commitment-text {
+position: relative;
+}
+
+.commitment-label {
+margin-bottom: 18px;
+color: var(--amber);
+font-family: Georgia, "Times New Roman", serif;
+font-size: 0.75rem;
+font-weight: 700;
+letter-spacing: 0.38em;
+}
+
+.commitment-text h2 {
+position: relative;
+margin-bottom: 35px;
+padding-bottom: 27px;
+color: var(--red-dark);
+font-family:
+    "Yu Mincho",
+    "Hiragino Mincho ProN",
+    serif;
+font-size: clamp(2rem, 4vw, 3rem);
+font-weight: 500;
+letter-spacing: 0.11em;
+line-height: 1.55;
+}
+
+.commitment-text h2::after {
+position: absolute;
+bottom: 0;
+left: 0;
+width: 58px;
+height: 2px;
+content: "";
+background: linear-gradient(
+    to right,
+    var(--red),
+    var(--amber)
+);
+}
+
+.commitment-text p:not(.commitment-label) {
+margin-top: 20px;
+color: var(--gray);
+line-height: 2.15;
+}
+
+.commitment-section-dark .commitment-label {
+color: var(--gold);
+}
+
+.commitment-section-dark .commitment-text h2 {
+color: var(--white);
+}
+
+.commitment-section-dark .commitment-text p:not(.commitment-label) {
+color: rgba(255, 250, 242, 0.7);
+}
+
+/* お店の想い */
+.owner-message {
+position: relative;
+overflow: hidden;
+color: var(--white);
+text-align: center;
+background:
+    linear-gradient(
+    rgba(18, 8, 7, 0.87),
+    rgba(68, 10, 17, 0.84)
+    ),
+    url("../images/noodles-dynamic.png") center / cover no-repeat;
+background-attachment: fixed;
+}
+
+.owner-message::before {
+position: absolute;
+inset: 17px;
+border: 1px solid rgba(200, 164, 106, 0.4);
+content: "";
+pointer-events: none;
+}
+
+.owner-message::after {
+position: absolute;
+inset: 0;
+content: "";
+background:
+    radial-gradient(
+    circle at center,
+    transparent 12%,
+    rgba(8, 4, 3, 0.36) 100%
+    );
+}
+
+.owner-message-inner {
+position: relative;
+z-index: 1;
+max-width: 850px;
+}
+
+.owner-message-label {
+margin-bottom: 20px;
+color: var(--gold);
+font-family: Georgia, "Times New Roman", serif;
+font-size: 0.75rem;
+letter-spacing: 0.42em;
+}
+
+.owner-message h2 {
+margin-bottom: 36px;
+font-family:
+    "Yu Mincho",
+    "Hiragino Mincho ProN",
+    serif;
+font-size: clamp(2rem, 4.5vw, 3.4rem);
+font-weight: 500;
+letter-spacing: 0.13em;
+line-height: 1.65;
+}
+
+.owner-message p:not(.owner-message-label):not(.owner-sign) {
+margin-top: 21px;
+color: rgba(255, 250, 242, 0.74);
+line-height: 2.2;
+}
+
+.owner-sign {
+position: relative;
+display: inline-block;
+margin-top: 45px;
+padding-top: 21px;
+color: var(--gold);
+font-family:
+    "Yu Mincho",
+    "Hiragino Mincho ProN",
+    serif;
+font-size: 1.08rem;
+letter-spacing: 0.17em;
+}
+
+.owner-sign::before {
+position: absolute;
+top: 0;
+left: 50%;
+width: 42px;
+height: 1px;
+content: "";
+background-color: var(--gold);
+transform: translateX(-50%);
+}
+
+/* ページ下部 */
+.commitment-bottom {
+position: relative;
+min-height: 500px;
+display: grid;
+place-items: center;
+overflow: hidden;
+color: var(--white);
+text-align: center;
+background:
+    linear-gradient(
+    90deg,
+    rgba(18, 8, 7, 0.9),
+    rgba(69, 10, 18, 0.62)
+    ),
+    url("../images/ramen-hero.png") center / cover no-repeat;
+}
+
+.commitment-bottom::before {
+position: absolute;
+inset: 17px;
+z-index: 1;
+border: 1px solid rgba(200, 164, 106, 0.4);
+content: "";
+}
+
+.commitment-bottom::after {
+position: absolute;
+inset: 0;
+content: "";
+background:
+    radial-gradient(
+    circle at center,
+    transparent 12%,
+    rgba(8, 4, 3, 0.4) 100%
+    );
+}
+
+.commitment-bottom-content {
+position: relative;
+z-index: 2;
+padding: 70px 24px;
+}
+
+.commitment-bottom-en {
+margin-bottom: 18px;
+color: var(--gold);
+font-family: Georgia, "Times New Roman", serif;
+font-size: 0.75rem;
+letter-spacing: 0.42em;
+}
+
+.commitment-bottom h2 {
+margin-bottom: 36px;
+font-family:
+    "Yu Mincho",
+    "Hiragino Mincho ProN",
+    serif;
+font-size: clamp(2rem, 4.5vw, 3.3rem);
+font-weight: 500;
+letter-spacing: 0.13em;
+line-height: 1.55;
+}
+
+/* タブレット */
+@media (max-width: 900px) {
+.commitment-row {
+    grid-template-columns: 1fr;
+}
+
+.commitment-row-reverse .commitment-image,
+.commitment-row-reverse .commitment-text {
+    order: initial;
+}
+
+.commitment-image {
+    height: 470px;
+}
+
+.owner-message {
+    background-attachment: scroll;
+}
+}
+
+/* スマートフォン */
+@media (max-width: 600px) {
+.commitment-header {
+    background-position: 57% center;
+}
+
+.commitment-introduction::before,
+.commitment-introduction::after {
+    display: none;
+}
+
+.commitment-description br,
+.owner-message p br {
+    display: none;
+}
+
+.commitment-image {
+    height: 350px;
+}
+
+.commitment-number {
+    right: 20px;
+    bottom: 15px;
+    font-size: 4rem;
+}
+
+.commitment-text h2 {
+    margin-bottom: 27px;
+    padding-bottom: 21px;
+    font-size: 2rem;
+}
+
+.owner-message::before,
+.commitment-bottom::before {
+    inset: 10px;
+}
+
+.owner-message h2 br {
+    display: none;
+}
+
+.commitment-bottom {
+    min-height: 430px;
+    background-position: 63% center;
+}
+}

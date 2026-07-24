@@ -1,241 +1,376 @@
-    <!doctype html>
-    <html lang="ja">
-    <head>
-    <meta charset="UTF-8">
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+    name="description"
+    content="滋賀県東近江市五個荘にある、らぁ麺いちと。昼11時から15時、夜18時から21時まで営業しています。"
+>
+
+<title>らぁ麺 いちと｜滋賀県東近江市五個荘</title>
+
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/index.css">
+
+<script src="js/main.js" defer></script>
+</head>
+
+<body>
+
+<!-- ヘッダー -->
+<header class="header">
+    <div class="header-inner">
+
+    <a href="index.html" class="logo">
+        <span class="logo-main">いちと</span>
+        <span class="logo-sub">RAMEN ICHITO</span>
+    </a>
+
+    <nav
+        class="navigation"
+        id="global-navigation"
+        aria-label="メインメニュー"
     >
+        <a href="index.html" class="current">ホーム</a>
+        <a href="menu.html">お品書き</a>
+        <a href="commitment.html">こだわり</a>
+        <a href="shop.html">店舗案内</a>
+    </nav>
 
-    <meta
-        name="description"
-        content="滋賀県東近江市五個荘のらぁ麺店、らぁ麺いちとの公式サイト。"
+    <button
+        class="menu-toggle"
+        type="button"
+        aria-label="メニューを開く"
+        aria-controls="global-navigation"
+        aria-expanded="false"
     >
+        <span class="menu-toggle-lines"></span>
+    </button>
 
-    <title>らぁ麺 いちと｜滋賀・東近江</title>
+    </div>
+</header>
 
-    <link rel="stylesheet" href="css/index.css">
-    </head>
+<div class="menu-overlay" aria-hidden="true"></div>
 
-    <body>
-    <header class="header">
-        <a class="logo" href="#top">
+<main>
+
+    <!-- メインビジュアル -->
+    <section class="hero">
+
+    <div class="hero-content">
+
+        <p class="hero-label">
+        SHIGA · GOKASHO
+        </p>
+
+        <h1>
+        <span class="hero-small">滋賀・五個荘</span>
         らぁ麺 いちと
+        </h1>
+
+        <p class="hero-description">
+        丁寧な仕事を、まっすぐ一杯に。
+        </p>
+
+        <div class="hero-buttons">
+        <a href="menu.html" class="button">
+            お品書きを見る
         </a>
 
-        <nav
-        class="navigation"
-        aria-label="メインメニュー"
-        >
-        <a href="#craft">こだわり</a>
-        <a href="#menu">お品書き</a>
-        <a href="#information">店舗案内</a>
-        </nav>
-    </header>
-
-    <main id="top">
-        <!-- メインビジュアル -->
-
-        <section class="hero">
-        <img
-            class="hero-image"
-            src="images/ramen.png"
-            alt="らぁ麺いちとの醤油らぁ麺"
-        >
-
-        <div class="hero-text">
-            <h1>
-            一杯に、<br>
-            まっすぐ。
-            </h1>
-
-            <p class="hero-description">
-            滋賀・東近江 五個荘<br>
-            心を込めてお作りします。
-            </p>
+        <a href="shop.html" class="button button-light">
+            店舗案内を見る
+        </a>
         </div>
-        </section>
 
-        <!-- こだわり -->
+    </div>
 
-        <section
-        class="craft section"
-        id="craft"
-        >
-        <div class="inner craft-grid">
-            <div class="craft-photo">
+    <a href="#introduction" class="scroll-indicator">
+        <span>SCROLL</span>
+        <span class="scroll-line"></span>
+    </a>
+
+    </section>
+
+    <!-- はじめの紹介 -->
+    <section
+    class="section introduction"
+    id="introduction"
+    >
+    <div class="inner introduction-inner">
+
+        <p class="introduction-label">RAMEN ICHITO</p>
+
+        <h2>
+        また食べたくなる、<br>
+        心に残る一杯を。
+        </h2>
+
+        <p>
+        滋賀県東近江市五個荘にある、らぁ麺 いちと。<br>
+        素材と向き合い、一杯一杯丁寧にお作りしています。<br>
+        お近くにお越しの際は、ぜひお立ち寄りください。
+        </p>
+
+    </div>
+    </section>
+
+    <!-- こだわり -->
+    <section class="section craft-section">
+    <div class="inner">
+
+        <div class="craft-layout">
+
+        <div class="craft-image">
             <img
-                src="images/ramen.jpg"
-                alt="澄んだ醤油スープと麺"
+            src="images/noodles-dynamic.png"
+            alt="丁寧に作られた麺"
+            >
+        </div>
+
+        <div class="craft-content">
+
+            <p class="craft-label">OUR CRAFT</p>
+
+            <h2>
+            一杯を支える、<br>
+            丁寧な仕事。
+            </h2>
+
+            <p>
+            麺のすすり心地、スープの香りと余韻、
+            具材との重なり。そのすべてが一つになるよう、
+            最後の仕上げまで心を込めています。
+            </p>
+
+            <a href="commitment.html" class="text-link">
+            いちとのこだわりを見る
+            <span aria-hidden="true">→</span>
+            </a>
+
+        </div>
+
+        </div>
+
+    </div>
+    </section>
+
+    <!-- お品書き -->
+    <section class="section home-menu">
+    <div class="inner">
+
+        <div class="section-title">
+        <p class="section-title-en">MENU</p>
+        <h2>お品書き</h2>
+        </div>
+
+        <div class="home-menu-grid">
+
+        <a
+            href="menu.html#ramen"
+            class="home-menu-card home-menu-card-main"
+        >
+            <div class="home-menu-image">
+            <img
+                src="images/ramen-hero.png"
+                alt="いちとのらぁ麺"
             >
             </div>
 
-            <div class="craft-text">
-            <h2 class="section-title">
-                <span>Our Craft</span>
-                こだわり
-            </h2>
+            <div class="home-menu-content">
+            <p class="home-menu-en">RAMEN</p>
+            <h3>らぁ麺</h3>
+            <p>香り、旨み、余韻を楽しむ一杯。</p>
+            <span>詳しく見る →</span>
+            </div>
+        </a>
 
-            <p class="lead">
-                澄んだ一杯に、<br>
-                重ねた手間と想い。
-            </p>
+        <a
+            href="menu.html#set-meal"
+            class="home-menu-card"
+        >
+            <div class="home-menu-image">
+            <img
+                src="images/noodles-dynamic.png"
+                alt="いちとの麺"
+            >
+            </div>
+
+            <div class="home-menu-content">
+            <p class="home-menu-en">SET MENU</p>
+            <h3>定食</h3>
+            <p>その日の気分に合わせて選べる定食。</p>
+            <span>詳しく見る →</span>
+            </div>
+        </a>
+
+        <a
+            href="menu.html#side-menu"
+            class="home-menu-card"
+        >
+            <div class="home-menu-image">
+            <img
+                src="images/ramen-hero.png"
+                alt="いちとの料理"
+            >
+            </div>
+
+            <div class="home-menu-content">
+            <p class="home-menu-en">SIDE DISH</p>
+            <h3>単品</h3>
+            <p>らぁ麺と一緒に楽しみたい一品。</p>
+            <span>詳しく見る →</span>
+            </div>
+        </a>
+
+        </div>
+
+        <div class="home-menu-button">
+        <a href="menu.html" class="button">
+            お品書きをすべて見る
+        </a>
+        </div>
+
+    </div>
+    </section>
+
+    <!-- 営業案内 -->
+    <section class="section business-section">
+    <div class="inner">
+
+        <div class="business-layout">
+
+        <div class="business-heading">
+            <p class="business-label">INFORMATION</p>
+
+            <h2>
+            本日の一杯を、<br>
+            五個荘で。
+            </h2>
 
             <p>
-                素材と向き合い、一杯ずつ丁寧に。
-                香り立つ醤油のスープ、しなやかな麺、
-                味わいを引き立てる具材。
-                最後のひと口まで楽しんでいただける
-                らぁ麺を目指しています。
-            </p>
-
-            <span class="shop-name">
-                らぁ麺 いちと
-            </span>
-            </div>
-        </div>
-        </section>
-
-        <!-- お品書き -->
-
-        <section
-        class="menu section"
-        id="menu"
-        >
-        <div class="inner">
-            <h2 class="section-title">
-            <span>Menu</span>
-            お品書き
-            </h2>
-
-            <div class="menu-grid">
-            <article class="menu-card">
-                <span class="menu-number">
-                01
-                </span>
-
-                <h3>醤油らぁ麺</h3>
-
-                <p>
-                澄んだスープと麺の味わいを、
-                まっすぐ楽しむ基本の一杯。
-                </p>
-            </article>
-
-            <article class="menu-card">
-                <span class="menu-number">
-                02
-                </span>
-
-                <h3>特製らぁ麺</h3>
-
-                <p>
-                いちとの味を、より贅沢に
-                楽しんでいただくための一杯。
-                </p>
-            </article>
-
-            <article class="menu-card">
-                <span class="menu-number">
-                03
-                </span>
-
-                <h3>ご飯もの</h3>
-
-                <p>
-                らぁ麺と一緒に味わいたい、
-                満足感のあるご飯もの。
-                </p>
-            </article>
-            </div>
-
-            <p class="menu-note">
-            ※メニューと価格は店頭の最新表示をご確認ください。
+            営業時間の変更や臨時休業については、
+            公式Instagramでもお知らせしています。
             </p>
         </div>
-        </section>
 
-        <!-- 店舗案内 -->
+        <div class="business-information">
 
-        <section
-        class="information section"
-        id="information"
-        >
-        <div class="inner information-grid">
-            <div>
-            <h2 class="section-title">
-                <span>Information</span>
-                店舗案内
-            </h2>
+            <div class="business-row">
+            <p class="business-name">昼営業</p>
+            <p class="business-time">11:00～15:00</p>
+            </div>
 
-            <dl class="info-list">
-                <div class="info-row">
-                <dt>店名</dt>
+            <div class="business-row">
+            <p class="business-name">夜営業</p>
+            <p class="business-time">18:00～21:00</p>
+            </div>
 
-                <dd>
-                    らぁ麺 いちと
-                </dd>
-                </div>
+            <div class="business-row">
+            <p class="business-name">定休日</p>
+            <p class="business-time">
+                水曜夜・木曜日
+            </p>
+            </div>
 
-                <div class="info-row">
-                <dt>所在地</dt>
-
-                <dd>
-                    滋賀県東近江市五個荘石塚町226-1
-                    <br>
-                    ハイツ藤 1F
-                </dd>
-                </div>
-
-                <div class="info-row">
-                <dt>営業時間</dt>
-
-                <dd>
-                    最新の営業情報をご確認ください
-                </dd>
-                </div>
-
-                <div class="info-row">
-                <dt>駐車場</dt>
-
-                <dd>
-                    あり
-                </dd>
-                </div>
-            </dl>
+            <div class="business-buttons">
+            <a href="shop.html" class="button">
+                店舗案内を見る
+            </a>
 
             <a
-                class="map-button"
-                href="https://www.google.com/maps/search/?api=1&query=らぁ麺+いちと+東近江市"
+                href="https://www.google.com/maps/search/?api=1&query=滋賀県東近江市五個荘石塚町226-1+らぁ麺いちと"
+                class="button button-light"
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                Googleマップを開く
+                Googleマップ
             </a>
             </div>
 
-            <div class="information-message">
-            <strong>
-                五個荘で、<br>
-                今日も一杯ずつ。
-            </strong>
-
-            <p>
-                お近くにお越しの際は、
-                ぜひお立ち寄りください。
-                皆さまのご来店を
-                心よりお待ちしています。
-            </p>
-            </div>
         </div>
-        </section>
-    </main>
 
-    <!-- フッター -->
+        </div>
 
-    <footer class="footer">
-        &copy; 2026 らぁ麺 いちと
-    </footer>
-    </body>
-    </html>
+    </div>
+    </section>
+
+    <!-- Instagram -->
+    <section class="home-instagram">
+    <div class="home-instagram-content">
+
+        <p class="home-instagram-label">
+        FOLLOW US
+        </p>
+
+        <h2>最新情報はInstagramで。</h2>
+
+        <p>
+        営業時間の変更や臨時休業、<br>
+        お店からのお知らせを発信しています。
+        </p>
+
+        <a
+        href="https://www.instagram.com/ramen_ichito/"
+        class="button button-light"
+        target="_blank"
+        rel="noopener noreferrer"
+        >
+        Instagramを見る
+        </a>
+
+    </div>
+    </section>
+
+</main>
+
+<!-- フッター -->
+<footer class="footer">
+    <div class="footer-inner">
+
+    <div class="footer-shop">
+        <p class="footer-logo">らぁ麺 いちと</p>
+        <p>
+        滋賀県東近江市五個荘石塚町226-1
+        ハイツ藤 1F
+        </p>
+        <p>営業時間：11:00～15:00 / 18:00～21:00</p>
+        <p>定休日：水曜夜・木曜日</p>
+    </div>
+
+    <div class="footer-links">
+        <a href="index.html">ホーム</a>
+        <a href="menu.html">お品書き</a>
+        <a href="commitment.html">こだわり</a>
+        <a href="shop.html">店舗案内</a>
+    </div>
+
+    <a
+        class="instagram-link"
+        href="https://www.instagram.com/ramen_ichito/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="らぁ麺いちとのInstagramを見る"
+    >
+        <span class="instagram-icon" aria-hidden="true">
+        <span class="instagram-circle"></span>
+        <span class="instagram-dot"></span>
+        </span>
+
+        <span>Instagram</span>
+    </a>
+
+    </div>
+
+    <p class="copyright">
+    &copy; らぁ麺 いちと All Rights Reserved.
+    </p>
+</footer>
+
+</body>
+</html>

@@ -1,519 +1,805 @@
-    :root {
-    --paper: #f5f0e7;
-    --white: #fffdf9;
-    --black: #191816;
-    --gray: #746f67;
-    --red: #941f2b;
-    --line: rgba(25, 24, 22, 0.15);
-    }
+/* ========================================
+index.css
+ホームページ専用
+======================================== */
 
-    * {
-    box-sizing: border-box;
-    }
+/* ========================================
+メインビジュアル
+======================================== */
 
-    html {
-    scroll-behavior: smooth;
-    }
+.hero {
+position: relative;
+min-height: calc(100svh - var(--header-height));
+display: flex;
+align-items: center;
+margin-top: var(--header-height);
+overflow: hidden;
+color: var(--white);
+background:
+    linear-gradient(
+    90deg,
+    rgba(12, 7, 5, 0.94) 0%,
+    rgba(31, 8, 9, 0.78) 38%,
+    rgba(31, 8, 9, 0.18) 75%,
+    rgba(12, 7, 5, 0.12) 100%
+    ),
+    url("../images/ramen-hero.png") center / cover no-repeat;
+}
 
-    body {
-    margin: 0;
-    color: var(--black);
-    background: var(--paper);
-    font-family:
-        "Yu Mincho",
-        "Hiragino Mincho ProN",
-        serif;
-    line-height: 1.9;
-    }
-
-    img {
-    display: block;
-    width: 100%;
-    }
-
-    a {
-    color: inherit;
-    text-decoration: none;
-    }
-
-    /* ヘッダー */
-
-    .header {
-    position: fixed;
-    z-index: 10;
-    top: 0;
-    right: 0;
-    left: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    height: 76px;
-    padding: 0 5vw;
-
-    background: rgba(248, 244, 237, 0.94);
-    border-bottom: 1px solid var(--line);
-    backdrop-filter: blur(12px);
-    }
-
-    .logo {
-    font-size: clamp(1.3rem, 2vw, 2rem);
-    font-weight: bold;
-    letter-spacing: 0.13em;
-    }
-
-    .navigation {
-    display: flex;
-    gap: clamp(22px, 4vw, 58px);
-
-    font-size: 0.9rem;
-    letter-spacing: 0.15em;
-    }
-
-    .navigation a {
-    position: relative;
-    }
-
-    .navigation a::after {
-    position: absolute;
-    bottom: -7px;
-    left: 0;
-
-    width: 0;
-    height: 1px;
-
-    content: "";
-    background: var(--red);
-    transition: width 0.25s;
-    }
-
-    .navigation a:hover::after,
-    .navigation a:focus-visible::after {
-    width: 100%;
-    }
-
-    /* メインビジュアル */
-
-    .hero {
-    position: relative;
-
-    min-height: 720px;
-    height: 100svh;
-    padding-top: 76px;
-
-    overflow: hidden;
-    background: #111;
-    }
-
-    .hero-image {
-    position: absolute;
-    top: 76px;
-    right: 0;
-    bottom: 0;
-    left: 0;
-
-    height: calc(100% - 76px);
-
-    object-fit: cover;
-    object-position: center;
-    }
-
-    .hero::after {
-    position: absolute;
-    top: 76px;
-    right: 0;
-    bottom: 0;
-    left: 0;
-
-    content: "";
-
-    background: linear-gradient(
-        90deg,
-        rgba(8, 8, 8, 0.92) 0%,
-        rgba(8, 8, 8, 0.72) 25%,
-        rgba(8, 8, 8, 0.14) 60%,
-        rgba(8, 8, 8, 0.04) 100%
+.hero::before {
+position: absolute;
+inset: 0;
+content: "";
+background:
+    radial-gradient(
+    circle at 75% 40%,
+    transparent 10%,
+    rgba(5, 2, 2, 0.32) 100%
     );
-    }
-
-    .hero-text {
-    position: relative;
-    z-index: 2;
-
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-    gap: 40px;
-
-    height: 100%;
-    padding: clamp(110px, 15vh, 160px) 8vw 70px;
-
-    color: #fff;
-    }
-
-    .hero h1 {
-    margin: 0;
-
-    writing-mode: vertical-rl;
-
-    font-size: clamp(2.8rem, 5vw, 5.2rem);
-    font-weight: 400;
-    line-height: 1.45;
-    letter-spacing: 0.1em;
-    }
-
-    .hero-description {
-    margin: 16px 0 0;
-
-    writing-mode: vertical-rl;
-
-    font-size: 0.95rem;
-    letter-spacing: 0.22em;
-    opacity: 0.88;
-    }
-
-    /* 共通セクション */
-
-    .section {
-    padding: clamp(80px, 10vw, 140px) 7vw;
-    }
-
-    .inner {
-    width: min(1120px, 100%);
-    margin: 0 auto;
-    }
-
-    .section-title {
-    margin: 0 0 50px;
-
-    font-size: 1.8rem;
-    font-weight: 400;
-    letter-spacing: 0.2em;
-    }
-
-    .section-title span {
-    display: block;
-    margin-bottom: 8px;
-
-    color: var(--red);
-
-    font-family: sans-serif;
-    font-size: 0.68rem;
-    font-weight: bold;
-    line-height: 1;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    }
-
-    /* こだわり */
-
-    .craft {
-    background: var(--white);
-    }
-
-    .craft-grid {
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: clamp(50px, 8vw, 110px);
-    align-items: center;
-    }
-
-    .craft-photo {
-    height: 470px;
-
-    overflow: hidden;
-    background: var(--red);
-    }
-
-    .craft-photo img {
-    height: 100%;
-
-    object-fit: cover;
-    filter: saturate(0.92) contrast(1.03);
-    }
-
-    .lead {
-    margin: 0 0 24px;
-
-    font-size: clamp(1.6rem, 3vw, 2.6rem);
-    line-height: 1.65;
-    letter-spacing: 0.08em;
-    }
-
-    .craft-text p {
-    max-width: 34em;
-    color: #54504a;
-    }
-
-    .shop-name {
-    display: inline-flex;
-    align-items: center;
-    gap: 14px;
-
-    margin-top: 20px;
-
-    color: var(--red);
-
-    font-size: 0.86rem;
-    letter-spacing: 0.16em;
-    }
-
-    .shop-name::before {
-    width: 44px;
-    height: 1px;
-
-    content: "";
-    background: currentColor;
-    }
-
-    /* メニュー */
-
-    .menu {
-    background: var(--paper);
-    }
-
-    .menu-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    }
-
-    .menu-card {
-    padding: 34px 28px;
-
-    background: rgba(255, 255, 255, 0.4);
-    border: 1px solid var(--line);
-
-    transition:
-        transform 0.25s,
-        background 0.25s;
-    }
-
-    .menu-card:hover {
-    background: rgba(255, 255, 255, 0.8);
-    transform: translateY(-5px);
-    }
-
-    .menu-number {
-    color: var(--red);
-
-    font-family: sans-serif;
-    font-size: 0.68rem;
-    letter-spacing: 0.18em;
-    }
-
-    .menu-card h3 {
-    margin: 24px 0 13px;
-
-    font-size: 1.35rem;
-    font-weight: 400;
-    letter-spacing: 0.12em;
-    }
-
-    .menu-card p {
-    margin: 0;
-
-    color: var(--gray);
-
-    font-size: 0.9rem;
-    }
-
-    .menu-note {
-    margin-top: 30px;
-
-    color: var(--gray);
-
-    font-size: 0.78rem;
-    text-align: right;
-    }
-
-    /* 店舗情報 */
-
-    .information {
-    color: #fff;
-    background: #1c1a18;
-    }
-
-    .information-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(50px, 8vw, 110px);
-    }
-
-    .information .section-title span {
-    color: #d4676f;
-    }
-
-    .info-list {
-    margin: 0;
-    }
-
-    .info-row {
-    display: grid;
-    grid-template-columns: 95px 1fr;
-    gap: 20px;
-
-    padding: 19px 0;
-
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    }
-
-    .info-row dt {
-    color: rgba(255, 255, 255, 0.58);
-    font-size: 0.8rem;
-    }
-
-    .info-row dd {
-    margin: 0;
-    }
-
-    .map-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    min-width: 220px;
-    margin-top: 36px;
-    padding: 16px 24px;
-
-    color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.6);
-
+}
+
+.hero::after {
+position: absolute;
+inset: 17px;
+border: 1px solid rgba(200, 164, 106, 0.34);
+content: "";
+pointer-events: none;
+}
+
+.hero-content {
+position: relative;
+z-index: 2;
+width: min(1200px, calc(100% - 48px));
+margin: 0 auto;
+padding: 100px 0 120px;
+animation: heroContentIn 1.1s ease both;
+}
+
+.hero-label {
+margin-bottom: 23px;
+color: var(--gold);
+font-family: Georgia, "Times New Roman", serif;
+font-size: 0.75rem;
+font-weight: 700;
+letter-spacing: 0.43em;
+}
+
+.hero h1 {
+font-family:
+    "Yu Mincho",
+    "Hiragino Mincho ProN",
+    serif;
+font-size: clamp(3rem, 7vw, 6.7rem);
+font-weight: 500;
+letter-spacing: 0.15em;
+line-height: 1.25;
+text-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+.hero-small {
+display: block;
+margin-bottom: 12px;
+color: rgba(255, 250, 242, 0.78);
+font-size: clamp(0.95rem, 1.6vw, 1.3rem);
+letter-spacing: 0.35em;
+}
+
+.hero-description {
+margin-top: 25px;
+color: rgba(255, 250, 242, 0.82);
+font-family:
+    "Yu Mincho",
+    "Hiragino Mincho ProN",
+    serif;
+font-size: clamp(1rem, 2vw, 1.3rem);
+letter-spacing: 0.14em;
+}
+
+.hero-buttons {
+display: flex;
+flex-wrap: wrap;
+gap: 13px;
+margin-top: 45px;
+}
+
+/* スクロール表示 */
+.scroll-indicator {
+position: absolute;
+right: 45px;
+bottom: 35px;
+z-index: 3;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 12px;
+color: rgba(255, 250, 242, 0.7);
+font-family: Georgia, "Times New Roman", serif;
+font-size: 0.6rem;
+letter-spacing: 0.28em;
+writing-mode: vertical-rl;
+}
+
+.scroll-line {
+position: relative;
+width: 1px;
+height: 58px;
+overflow: hidden;
+background-color: rgba(255, 250, 242, 0.25);
+}
+
+.scroll-line::after {
+position: absolute;
+top: -100%;
+left: 0;
+width: 100%;
+height: 70%;
+content: "";
+background-color: var(--gold);
+animation: scrollLine 2s ease-in-out infinite;
+}
+
+/* ========================================
+はじめの紹介
+======================================== */
+
+.introduction {
+position: relative;
+overflow: hidden;
+color: var(--white);
+text-align: center;
+background:
+    radial-gradient(
+    circle at 50% 0%,
+    rgba(143, 23, 36, 0.32),
+    transparent 45%
+    ),
+    var(--black);
+}
+
+.introduction::before,
+.introduction::after {
+position: absolute;
+top: 50%;
+width: 18%;
+height: 1px;
+content: "";
+background: linear-gradient(
+    to right,
+    transparent,
+    rgba(200, 164, 106, 0.42)
+);
+}
+
+.introduction::before {
+left: 0;
+}
+
+.introduction::after {
+right: 0;
+transform: rotate(180deg);
+}
+
+.introduction-inner {
+max-width: 850px;
+}
+
+.introduction-label {
+margin-bottom: 23px;
+color: var(--gold);
+font-family: Georgia, "Times New Roman", serif;
+font-size: 0.75rem;
+letter-spacing: 0.4em;
+}
+
+.introduction h2 {
+margin-bottom: 32px;
+font-family:
+    "Yu Mincho",
+    "Hiragino Mincho ProN",
+    serif;
+font-size: clamp(2rem, 4.5vw, 3.5rem);
+font-weight: 500;
+letter-spacing: 0.13em;
+line-height: 1.65;
+}
+
+.introduction p:last-child {
+color: rgba(255, 250, 242, 0.72);
+line-height: 2.25;
+}
+
+/* ========================================
+こだわり
+======================================== */
+
+.craft-section {
+position: relative;
+overflow: hidden;
+background:
+    radial-gradient(
+    circle at 90% 10%,
+    rgba(143, 23, 36, 0.09),
+    transparent 35%
+    ),
+    var(--paper);
+}
+
+.craft-layout {
+display: grid;
+grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+gap: clamp(45px, 8vw, 110px);
+align-items: center;
+}
+
+.craft-image {
+position: relative;
+height: 620px;
+overflow: hidden;
+border-radius: 3px;
+box-shadow: var(--shadow);
+}
+
+.craft-image::before {
+position: absolute;
+top: -20px;
+left: -20px;
+z-index: 2;
+width: 85px;
+height: 85px;
+border-top: 1px solid var(--amber);
+border-left: 1px solid var(--amber);
+content: "";
+}
+
+.craft-image::after {
+position: absolute;
+inset: 13px;
+z-index: 1;
+border: 1px solid rgba(255, 250, 242, 0.38);
+content: "";
+pointer-events: none;
+}
+
+.craft-image img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: transform 1.1s ease;
+}
+
+.craft-image:hover img {
+transform: scale(1.045);
+}
+
+.craft-label {
+margin-bottom: 18px;
+color: var(--amber);
+font-family: Georgia, "Times New Roman", serif;
+font-size: 0.75rem;
+font-weight: 700;
+letter-spacing: 0.38em;
+}
+
+.craft-content h2 {
+position: relative;
+margin-bottom: 35px;
+padding-bottom: 27px;
+color: var(--red-dark);
+font-family:
+    "Yu Mincho",
+    "Hiragino Mincho ProN",
+    serif;
+font-size: clamp(2rem, 4vw, 3.2rem);
+font-weight: 500;
+letter-spacing: 0.12em;
+line-height: 1.55;
+}
+
+.craft-content h2::after {
+position: absolute;
+bottom: 0;
+left: 0;
+width: 58px;
+height: 2px;
+content: "";
+background: linear-gradient(
+    to right,
+    var(--red),
+    var(--amber)
+);
+}
+
+.craft-content > p:not(.craft-label) {
+color: var(--gray);
+line-height: 2.15;
+}
+
+.text-link {
+display: inline-flex;
+align-items: center;
+gap: 18px;
+margin-top: 35px;
+padding-bottom: 7px;
+border-bottom: 1px solid rgba(84, 16, 23, 0.35);
+color: var(--red-dark);
+font-weight: 600;
+letter-spacing: 0.08em;
+transition:
+    color var(--transition),
+    gap var(--transition),
+    border-color var(--transition);
+}
+
+.text-link:hover {
+gap: 27px;
+border-color: var(--amber);
+color: var(--amber);
+}
+
+/* ========================================
+お品書き
+======================================== */
+
+.home-menu {
+position: relative;
+overflow: hidden;
+background:
+    radial-gradient(
+    circle at 10% 90%,
+    rgba(184, 121, 34, 0.1),
+    transparent 33%
+    ),
+    var(--white);
+}
+
+.home-menu-grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 22px;
+}
+
+.home-menu-card {
+position: relative;
+min-height: 330px;
+display: flex;
+overflow: hidden;
+color: var(--white);
+background-color: var(--black);
+box-shadow: 0 15px 40px rgba(34, 17, 12, 0.16);
+}
+
+.home-menu-card-main {
+grid-column: 1 / -1;
+min-height: 500px;
+}
+
+.home-menu-image {
+position: absolute;
+inset: 0;
+}
+
+.home-menu-image::after {
+position: absolute;
+inset: 0;
+content: "";
+background:
+    linear-gradient(
+    90deg,
+    rgba(12, 7, 5, 0.92) 0%,
+    rgba(35, 10, 12, 0.63) 48%,
+    rgba(12, 7, 5, 0.2) 100%
+    );
+transition: background-color var(--transition);
+}
+
+.home-menu-image img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition:
+    filter 0.7s ease,
+    transform 0.9s ease;
+}
+
+.home-menu-card:hover .home-menu-image img {
+filter: saturate(1.12);
+transform: scale(1.045);
+}
+
+.home-menu-content {
+position: relative;
+z-index: 1;
+width: min(62%, 500px);
+align-self: flex-end;
+padding: clamp(30px, 5vw, 60px);
+}
+
+.home-menu-en {
+margin-bottom: 11px;
+color: var(--gold);
+font-family: Georgia, "Times New Roman", serif;
+font-size: 0.7rem;
+letter-spacing: 0.34em;
+}
+
+.home-menu-content h3 {
+margin-bottom: 13px;
+font-family:
+    "Yu Mincho",
+    "Hiragino Mincho ProN",
+    serif;
+font-size: clamp(1.7rem, 3vw, 2.6rem);
+font-weight: 500;
+letter-spacing: 0.14em;
+}
+
+.home-menu-content > p:not(.home-menu-en) {
+color: rgba(255, 250, 242, 0.7);
+font-size: 0.9rem;
+}
+
+.home-menu-content span {
+display: inline-block;
+margin-top: 23px;
+color: var(--gold);
+font-size: 0.82rem;
+letter-spacing: 0.08em;
+transition: transform var(--transition);
+}
+
+.home-menu-card:hover .home-menu-content span {
+transform: translateX(8px);
+}
+
+.home-menu-button {
+margin-top: 45px;
+text-align: center;
+}
+
+/* ========================================
+営業案内
+======================================== */
+
+.business-section {
+position: relative;
+overflow: hidden;
+color: var(--white);
+background:
+    radial-gradient(
+    circle at 85% 15%,
+    rgba(143, 23, 36, 0.38),
+    transparent 38%
+    ),
+    var(--black-soft);
+}
+
+.business-section::before {
+position: absolute;
+top: -140px;
+right: -140px;
+width: 420px;
+height: 420px;
+border: 1px solid rgba(200, 164, 106, 0.08);
+border-radius: 50%;
+content: "";
+}
+
+.business-layout {
+display: grid;
+grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+gap: clamp(50px, 9vw, 120px);
+align-items: center;
+}
+
+.business-label {
+margin-bottom: 17px;
+color: var(--gold);
+font-family: Georgia, "Times New Roman", serif;
+font-size: 0.75rem;
+letter-spacing: 0.38em;
+}
+
+.business-heading h2 {
+margin-bottom: 27px;
+font-family:
+    "Yu Mincho",
+    "Hiragino Mincho ProN",
+    serif;
+font-size: clamp(2rem, 4vw, 3.25rem);
+font-weight: 500;
+letter-spacing: 0.13em;
+line-height: 1.55;
+}
+
+.business-heading > p:last-child {
+color: rgba(255, 250, 242, 0.66);
+line-height: 2;
+}
+
+.business-information {
+padding: clamp(30px, 5vw, 52px);
+border: 1px solid rgba(200, 164, 106, 0.28);
+background-color: rgba(255, 250, 242, 0.035);
+box-shadow: 0 20px 50px rgba(6, 3, 2, 0.22);
+}
+
+.business-row {
+display: flex;
+align-items: baseline;
+justify-content: space-between;
+gap: 25px;
+padding: 21px 4px;
+border-bottom: 1px solid rgba(255, 250, 242, 0.13);
+}
+
+.business-name {
+color: rgba(255, 250, 242, 0.68);
+font-size: 0.87rem;
+letter-spacing: 0.1em;
+}
+
+.business-time {
+color: var(--white);
+font-family: Georgia, "Times New Roman", serif;
+font-size: clamp(1.05rem, 2vw, 1.3rem);
+letter-spacing: 0.08em;
+text-align: right;
+}
+
+.business-buttons {
+display: flex;
+gap: 12px;
+margin-top: 35px;
+}
+
+.business-buttons .button {
+flex: 1;
+min-width: 0;
+}
+
+/* ========================================
+Instagram
+======================================== */
+
+.home-instagram {
+position: relative;
+min-height: 520px;
+display: grid;
+place-items: center;
+overflow: hidden;
+color: var(--white);
+text-align: center;
+background:
+    linear-gradient(
+    rgba(22, 8, 8, 0.84),
+    rgba(67, 9, 17, 0.82)
+    ),
+    url("../images/noodles-dynamic.png") center / cover no-repeat;
+background-attachment: fixed;
+}
+
+.home-instagram::before {
+position: absolute;
+inset: 17px;
+border: 1px solid rgba(200, 164, 106, 0.4);
+content: "";
+}
+
+.home-instagram::after {
+position: absolute;
+inset: 0;
+content: "";
+background:
+    radial-gradient(
+    circle at center,
+    transparent 12%,
+    rgba(6, 3, 2, 0.38) 100%
+    );
+}
+
+.home-instagram-content {
+position: relative;
+z-index: 1;
+max-width: 760px;
+padding: 75px 24px;
+}
+
+.home-instagram-label {
+margin-bottom: 18px;
+color: var(--gold);
+font-family: Georgia, "Times New Roman", serif;
+font-size: 0.75rem;
+letter-spacing: 0.42em;
+}
+
+.home-instagram h2 {
+margin-bottom: 24px;
+font-family:
+    "Yu Mincho",
+    "Hiragino Mincho ProN",
+    serif;
+font-size: clamp(2rem, 4.5vw, 3.4rem);
+font-weight: 500;
+letter-spacing: 0.13em;
+}
+
+.home-instagram-content > p:not(.home-instagram-label) {
+margin-bottom: 38px;
+color: rgba(255, 250, 242, 0.74);
+line-height: 2.1;
+}
+
+/* ========================================
+アニメーション
+======================================== */
+
+@keyframes heroContentIn {
+from {
+    opacity: 0;
+    transform: translateY(28px);
+}
+
+to {
+    opacity: 1;
+    transform: translateY(0);
+}
+}
+
+@keyframes scrollLine {
+0% {
+    top: -100%;
+}
+
+50%,
+100% {
+    top: 120%;
+}
+}
+
+/* ========================================
+タブレット
+======================================== */
+
+@media (max-width: 900px) {
+.craft-layout,
+.business-layout {
+    grid-template-columns: 1fr;
+}
+
+.craft-image {
+    height: 500px;
+}
+
+.home-menu-grid {
+    grid-template-columns: 1fr;
+}
+
+.home-menu-card-main {
+    grid-column: auto;
+    min-height: 400px;
+}
+
+.home-menu-card {
+    min-height: 360px;
+}
+
+.home-instagram {
+    background-attachment: scroll;
+}
+}
+
+/* ========================================
+スマートフォン
+======================================== */
+
+@media (max-width: 600px) {
+.hero {
+    min-height: calc(100svh - var(--header-height));
+    background-position: 64% center;
+}
+
+.hero::after {
+    inset: 10px;
+}
+
+.hero-content {
+    width: calc(100% - 40px);
+    padding: 90px 0 110px;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 13vw, 4rem);
+    letter-spacing: 0.09em;
+}
+
+.hero-small {
     font-size: 0.85rem;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.22em;
+}
 
-    transition:
-        color 0.25s,
-        background 0.25s;
-    }
+.hero-description {
+    font-size: 0.95rem;
+}
 
-    .map-button:hover,
-    .map-button:focus-visible {
-    color: var(--black);
-    background: #fff;
-    }
+.hero-buttons {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 290px;
+}
 
-    .information-message {
-    align-self: center;
-    color: rgba(255, 255, 255, 0.72);
-    }
+.scroll-indicator {
+    right: 24px;
+    bottom: 25px;
+}
 
-    .information-message strong {
+.introduction::before,
+.introduction::after {
+    display: none;
+}
+
+.introduction h2 {
+    font-size: 1.85rem;
+}
+
+.introduction p br {
+    display: none;
+}
+
+.craft-image {
+    height: 360px;
+}
+
+.craft-content h2 {
+    font-size: 2rem;
+}
+
+.home-menu-card,
+.home-menu-card-main {
+    min-height: 360px;
+}
+
+.home-menu-image::after {
+    background:
+    linear-gradient(
+        to top,
+        rgba(12, 7, 5, 0.94) 0%,
+        rgba(35, 10, 12, 0.52) 60%,
+        rgba(12, 7, 5, 0.18) 100%
+    );
+}
+
+.home-menu-content {
+    width: 100%;
+    padding: 30px 25px;
+}
+
+.business-information {
+    padding: 25px 20px;
+}
+
+.business-row {
     display: block;
+}
 
-    margin-bottom: 24px;
+.business-time {
+    margin-top: 7px;
+    text-align: left;
+}
 
-    color: #fff;
+.business-buttons {
+    display: grid;
+    grid-template-columns: 1fr;
+}
 
-    font-size: clamp(1.45rem, 3vw, 2.3rem);
-    font-weight: 400;
-    line-height: 1.65;
-    }
+.home-instagram {
+    min-height: 440px;
+}
 
-    /* フッター */
+.home-instagram::before {
+    inset: 10px;
+}
 
-    .footer {
-    padding: 34px 7vw;
-
-    color: #6d675f;
-    background: #eee7dd;
-
-    font-family: sans-serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.12em;
-    text-align: center;
-    }
-
-    /* タブレット・スマートフォン */
-
-    @media (max-width: 760px) {
-    .header {
-        height: 64px;
-        padding: 0 20px;
-    }
-
-    .logo {
-        font-size: 1.2rem;
-    }
-
-    .navigation {
-        gap: 16px;
-        font-size: 0.7rem;
-    }
-
-    .navigation a:first-child {
-        display: none;
-    }
-
-    .hero {
-        min-height: 680px;
-        height: 92svh;
-        padding-top: 64px;
-    }
-
-    .hero-image {
-        top: 64px;
-        height: calc(100% - 64px);
-    }
-
-    .hero::after {
-        top: 64px;
-
-        background: linear-gradient(
-        90deg,
-        rgba(8, 8, 8, 0.84),
-        rgba(8, 8, 8, 0.25) 72%
-        );
-    }
-
-    .hero-text {
-        gap: 24px;
-        padding: 120px 28px 70px;
-    }
-
-    .hero h1 {
-        font-size: clamp(2.4rem, 11vw, 3.5rem);
-    }
-
-    .hero-description {
-        font-size: 0.8rem;
-    }
-
-    .section {
-        padding: 80px 24px;
-    }
-
-    .section-title {
-        margin-bottom: 34px;
-    }
-
-    .craft-grid,
-    .information-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .craft-photo {
-        height: 330px;
-    }
-
-    .menu-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .menu-note {
-        text-align: left;
-    }
-    }
-
-    /* 動きを減らす設定を使用している端末向け */
-
-    @media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
-
-    * {
-        transition-duration: 0.01ms !important;
-    }
-    }
+.home-instagram-content > p br {
+    display: none;
+}
+}
